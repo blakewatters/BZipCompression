@@ -39,7 +39,7 @@ NSData *compressedData = [BZipCompression compressedDataWithData:stringData bloc
 
 ## Installation
 
-BZipCompression is extremely lightweight and has no direct dependencies outside of the Cocoa Foundation framework and the BZip2 library. As such, the library can be trivially be installed into any Cocoa project by directly adding the source code and linking against libbz2. Despite this fact, we recommend installing via CocoaPods as it provides modularity and enables the easy installation of new value transformers that are dependent on BZipCompression itself.
+BZipCompression is extremely lightweight and has no direct dependencies outside of the Cocoa Foundation framework and the BZip2 library. As such, the library can be trivially be installed into any Cocoa project by directly adding the source code and linking against libbz2. Despite this fact, we recommend installing via CocoaPods as it provides modularity and easy version management.
 
 ### Via CocoaPods
 
