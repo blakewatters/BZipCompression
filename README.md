@@ -1,6 +1,7 @@
 BZipCompression
 ===============
 
+[![Build Status](https://travis-ci.org/blakewatters/BZipCompression.png?branch=master)](https://travis-ci.org/blakewatters/BZipCompression)
 ![Pod Version](http://cocoapod-badges.herokuapp.com/v/BZipCompression/badge.png) 
 ![Pod Platform](http://cocoapod-badges.herokuapp.com/p/BZipCompression/badge.png)
 
