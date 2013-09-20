@@ -48,14 +48,14 @@ NSInteger const BZipDefaultWorkFactor = 0;
     int bzret;
     bzret = BZ2_bzCompressInit(&stream, blockSize, 0, workFactor);
     if (bzret != BZ_OK) {
-        if (error) *error = [NSError errorWithDomain:BZipErrorDomain code:bzret userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"`BZ2_bzCompress` failed", nil) }];
+        if (error) *error = [NSError errorWithDomain:BZipErrorDomain code:bzret userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"`BZ2_bzCompressInit` failed", nil) }];
         return nil;
     }
 
     NSMutableData *compressedData = [NSMutableData data];
     do {
         bzret = BZ2_bzCompress(&stream, (stream.avail_in) ? BZ_RUN : BZ_FINISH);
-        if (bzret != BZ_RUN_OK && bzret != BZ_STREAM_END) {
+        if (bzret < BZ_OK) {
             if (error) *error = [NSError errorWithDomain:BZipErrorDomain code:bzret userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"`BZ2_bzCompress` failed", nil) }];
             return nil;
         }
@@ -97,7 +97,7 @@ NSInteger const BZipDefaultWorkFactor = 0;
     NSMutableData *decompressedData = [NSMutableData data];
     do {
         bzret = BZ2_bzDecompress(&stream);
-        if (bzret != BZ_OK && bzret != BZ_STREAM_END) {
+        if (bzret < BZ_OK) {
             if (error) *error = [NSError errorWithDomain:BZipErrorDomain code:bzret userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"`BZ2_bzDecompress` failed", nil) }];
             return nil;
         }
