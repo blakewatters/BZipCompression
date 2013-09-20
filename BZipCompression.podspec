@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'BZipCompression'
-  s.version  = '1.0.0'
+  s.version  = '1.0.1'
   s.license  = 'Apache2'
   s.summary  = 'An Objective-C interface for the BZip2 compression algorithm'
   s.homepage = 'https://github.com/blakewatters/BZipCompression'
