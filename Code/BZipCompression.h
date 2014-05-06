@@ -40,25 +40,25 @@ typedef NS_ENUM(NSInteger, BZipError) {
 /**
  A sensible default block size (of 7) for compression.
  */
-NSInteger const BZipDefaultBlockSize;
+extern NSInteger const BZipDefaultBlockSize;
 
 /**
  A sensible default work factor (of 0) for compression.
  */
-NSInteger const BZipDefaultWorkFactor;
+extern NSInteger const BZipDefaultWorkFactor;
 
 /**
  The `BZipCompression` class provides a static Objective-C interface for the compression and decompression of data using the BZip2 algorithm.
- 
+
  This code was adapted from a Stack Overflow posting: http://stackoverflow.com/a/11390277/177284
- 
+
  Learn details about the BZip2 compression algorithm at http://www.bzip.org/
  */
 @interface BZipCompression : NSObject
 
 /**
  Returns a representation of the input data compressed with the BZip2 algorithm using the specified work factor.
- 
+
  @param data The uncompressed source input data that is to be compressed.
  @param blockSize A value between 1 and 9 inclusize that specifies the block size used for compression. The actual memory used will be 100000 x this number. A value of 9 gives the best compression, but uses the most memory. If unsure, pass `BZipDefaultBlockSize`.
  @param workFactor Specifies how compression behaves when presented with worst case, highly repetitive data. Lower values will result in more aggressive use of a slower fallback compression alogrithm, potentially inflating compression times unnecessarilly. Values range from 0 to 250. Passing `0` instructs the library to use the default value. If unsure, pass `BZipDefaultWorkFactor`.
@@ -69,7 +69,7 @@ NSInteger const BZipDefaultWorkFactor;
 
 /**
  Returns a decompressed representation of the input data, which must be compressed using the BZip2 algorithm.
- 
+
  @param data The compressed input data that is to be decompressed.
  @error A pointer to an error object that, upon failure, is set to an `NSError` object indicating the nature of the failure.
  @return A new `NSData` object encapsulating the decompressed representation of the input data or `nil` if decompression failed.
