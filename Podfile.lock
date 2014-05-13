@@ -1,5 +1,5 @@
 PODS:
-  - BZipCompression (1.0.1)
+  - BZipCompression (1.0.2)
   - Expecta (0.3.0)
 
 DEPENDENCIES:
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  BZipCompression: 00102f9f9df6c04108c1b09ad8eb266a0bb4e607
+  BZipCompression: 01a58ec18215e65b7c9231985ba87259b4c18e80
   Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
 
 COCOAPODS: 0.32.1
