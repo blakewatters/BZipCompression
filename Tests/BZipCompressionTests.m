@@ -18,12 +18,12 @@
 //  limitations under the License.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #define EXP_SHORTHAND
 #import "Expecta.h"
 #import "BZipCompression.h"
 
-@interface BZipCompressionTests : SenTestCase
+@interface BZipCompressionTests : XCTestCase
 
 @property (nonatomic, readonly) NSBundle *testsBundle;
 

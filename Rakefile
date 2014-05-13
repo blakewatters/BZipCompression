@@ -1,28 +1,21 @@
-namespace :test do
-  task :prepare do
-    system(%Q{mkdir -p "Tests/BZipCompressionTests.xcodeproj/xcshareddata/xcschemes" && cp Tests/Schemes/*.xcscheme "Tests/BZipCompressionTests.xcodeproj/xcshareddata/xcschemes/"})
-  end
+require 'rubygems'
+require 'bundler'
+Bundler.setup
+require 'xctasks/test_task'
 
-  desc "Run the BZipCompression Tests for iOS"
-  task :ios => :prepare do
-    $ios_success = system("xctool -workspace BZipCompression.xcworkspace -scheme 'iOS Tests' -sdk iphonesimulator test -test-sdk iphonesimulator ONLY_ACTIVE_ARCH=NO")
+XCTasks::TestTask.new(:test) do |t|
+  t.workspace = 'BZipCompression.xcworkspace'
+  t.schemes_dir = 'Tests/Schemes'
+  t.runner = :xcpretty
+  t.actions = %w{test}
+  
+  t.subtask(ios: 'iOS Tests') do |s|
+    s.sdk = :iphonesimulator
   end
-
-  desc "Run the BZipCompression Tests for Mac OS X"
-  task :osx => :prepare do
-    $osx_success = system("xctool -workspace BZipCompression.xcworkspace -scheme 'OS X Tests' -sdk macosx test -test-sdk macosx")
-  end
-end
-
-desc "Run the BZipCompression Tests for iOS & Mac OS X"
-task :test => ['test:ios', 'test:osx'] do
-  puts "\033[0;31m! iOS unit tests failed" unless $ios_success
-  puts "\033[0;31m! OS X unit tests failed" unless $osx_success
-  if $ios_success && $osx_success
-    puts "\033[0;32m** All tests executed successfully"
-  else
-    exit(-1)
+  
+  t.subtask(osx: 'OS X Tests') do |s|
+    s.sdk = :macosx
   end
 end
 
-task :default => 'test'
+task default: 'test'
