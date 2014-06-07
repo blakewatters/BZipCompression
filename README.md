@@ -2,8 +2,9 @@ BZipCompression
 ===============
 
 [![Build Status](https://travis-ci.org/blakewatters/BZipCompression.png?branch=master)](https://travis-ci.org/blakewatters/BZipCompression)
-![Pod Version](http://cocoapod-badges.herokuapp.com/v/BZipCompression/badge.png) 
-![Pod Platform](http://cocoapod-badges.herokuapp.com/p/BZipCompression/badge.png)
+[![Pod Version](http://img.shields.io/cocoapods/v/BZipCompression.svg?style=flat)](http://cocoadocs.org/docsets/BZipCompression/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/BZipCompression.svg?style=flat)](http://cocoadocs.org/docsets/BZipCompression/)
+[![Pod License](http://img.shields.io/cocoapods/l/BZipCompression.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 **An Objective-C interface to the BZip2 compression library**
 
