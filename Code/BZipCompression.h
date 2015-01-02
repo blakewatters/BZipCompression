@@ -34,7 +34,12 @@ typedef NS_ENUM(NSInteger, BZipError) {
     BZipErrorInvalidConfiguration           = -9,   // BZ_CONFIG_ERROR
 
     // BZipCompression Errors
-    BZipErrorNilInputDataError              = 1000
+    BZipErrorNilInputDataError              = 1000,
+    BZipErrorInvalidSourcePath              = 1001,
+    BZipErrorInvalidDestinationPath         = 1002,
+    BZipErrorUnableToCreateDestinationPath  = 1003,
+    BZipErrorFileManagementFailure          = 1004,
+    BZipErrorOperationCancelled             = 1005
 };
 
 /**
@@ -56,8 +61,12 @@ extern NSInteger const BZipDefaultWorkFactor;
  */
 @interface BZipCompression : NSObject
 
+//--------------------------
+/// @name Compressing Data
+//--------------------------
+
 /**
- Returns a representation of the input data compressed with the BZip2 algorithm using the specified work factor.
+ @abstract Returns a representation of the input data compressed with the BZip2 algorithm using the specified work factor.
 
  @param data The uncompressed source input data that is to be compressed.
  @param blockSize A value between 1 and 9 inclusize that specifies the block size used for compression. The actual memory used will be 100000 x this number. A value of 9 gives the best compression, but uses the most memory. If unsure, pass `BZipDefaultBlockSize`.
@@ -67,13 +76,37 @@ extern NSInteger const BZipDefaultWorkFactor;
  */
 + (NSData *)compressedDataWithData:(NSData *)data blockSize:(NSInteger)blockSize workFactor:(NSInteger)workFactor error:(NSError **)error;
 
+//--------------------------
+/// @name Decompressing Data
+//--------------------------
+
 /**
- Returns a decompressed representation of the input data, which must be compressed using the BZip2 algorithm.
+ @abstract Returns a decompressed representation of the input data, which must be compressed using the BZip2 algorithm.
 
  @param data The compressed input data that is to be decompressed.
  @error A pointer to an error object that, upon failure, is set to an `NSError` object indicating the nature of the failure.
  @return A new `NSData` object encapsulating the decompressed representation of the input data or `nil` if decompression failed.
  */
 + (NSData *)decompressedDataWithData:(NSData *)data error:(NSError **)error;
+
+/**
+ @abstract Decompresses the specified file, whose contents must be data compressed using the BZip2 algorithm, to the specified destination path.
+ @discussion This method performs decompression using efficient streaming file I/O. It is suitable for use with files of arbitrary size.
+ 
+ @param sourcePath The source file containing BZip2 compressed data that is to be decompressed.
+ @param destinationPath The destination path that the decompressed data will be written to.
+ */
++ (BOOL)decompressDataFromFileAtPath:(NSString *)sourcePath toFileAtPath:(NSString *)destinationPath error:(NSError **)error;
+
+/**
+ @abstract Asynchronously decompresses the specified file, whose contents must be data compressed using the BZip2 algorithm, to the specified destination path, optionally reporting progress and invoking a block upon completion.
+ @discussion This method performs decompression using efficient streaming file I/O. It is suitable for use with files of arbitrary size.
+ 
+ @param sourcePath The source file containing BZip2 compressed data that is to be decompressed.
+ @param destinationPath The destination path that the decompressed data will be written to.
+ @param progress A pointer to an `NSProgress` object that upon return will be set to an object reporting progress on the decompression operation.
+ @param completion A block to execute upon completion of the decompression operation. The block has no return value and accepts two arguments: a Bpolean value that indicates if the operation was successful and an error describing the nature of the failure if the operation was not successful.
+ */
++ (void)asynchronouslyDecompressFileAtPath:(NSString *)sourcePath toFileAtPath:(NSString *)destinationPath progress:(NSProgress **)progress completion:(void (^)(BOOL success, NSError *error))completion;
 
 @end

@@ -67,6 +67,78 @@
     expect(error.code).to.equal(BZipErrorNilInputDataError);
 }
 
+- (void)testDecompressionToPath
+{
+    NSString *inputPath = [self.testsBundle pathForResource:@"Fixture" ofType:@"txt.bz2"];
+    NSString *outputPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"fixture.txt"]];
+    NSError *error = nil;
+    BOOL success = [BZipCompression decompressDataFromFileAtPath:inputPath toFileAtPath:outputPath error:&error];
+    expect(success).to.beTruthy();
+    expect(error).to.beNil();
+    NSString *decompressedFileContents = [NSString stringWithContentsOfFile:outputPath encoding:NSUTF8StringEncoding error:&error];
+    expect(decompressedFileContents).to.equal(@"Hello World!\n");
+}
+
+- (void)testDecompressionOfLargeFileToPath
+{
+    NSString *inputPath = [self.testsBundle pathForResource:@"anna_karenina" ofType:@"txt.bz2"];
+    NSString *outputPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"anna_karenina.txt"]];
+    NSError *error = nil;
+    BOOL success = [BZipCompression decompressDataFromFileAtPath:inputPath toFileAtPath:outputPath error:&error];
+    expect(success).to.beTruthy();
+    expect(error).to.beNil();
+    
+    NSString *referenceFile = [self.testsBundle pathForResource:@"anna_karenina" ofType:@"txt"];
+    BOOL contentsAreEqual = [[NSFileManager defaultManager] contentsEqualAtPath:outputPath andPath:referenceFile];
+    expect(contentsAreEqual).to.beTruthy();
+}
+
+- (void)testAsyncDecompressonToPath
+{
+    NSString *inputPath = [self.testsBundle pathForResource:@"anna_karenina" ofType:@"txt.bz2"];
+    NSString *outputPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"anna_karenina.txt"]];
+    __block BOOL done = NO;
+    [BZipCompression asynchronouslyDecompressFileAtPath:inputPath toFileAtPath:outputPath progress:nil completion:^(BOOL success, NSError *error) {
+        expect(success).to.beTruthy();
+        expect(error).to.beNil();
+        done = YES;
+    }];
+    expect(done).will.beTruthy();
+    
+    NSString *referenceFile = [self.testsBundle pathForResource:@"anna_karenina" ofType:@"txt"];
+    BOOL contentsAreEqual = [[NSFileManager defaultManager] contentsEqualAtPath:outputPath andPath:referenceFile];
+    expect(contentsAreEqual).to.beTruthy();
+}
+
+- (void)testMonitoringProgressOfDecompressionOperation
+{
+    NSString *inputPath = [self.testsBundle pathForResource:@"anna_karenina" ofType:@"txt.bz2"];
+    NSString *outputPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"anna_karenina.txt"]];
+    __block BOOL done = NO;
+    NSProgress *progress = nil;
+    [BZipCompression asynchronouslyDecompressFileAtPath:inputPath toFileAtPath:outputPath progress:&progress completion:^(BOOL success, NSError *error) {
+        expect(success).to.beTruthy();
+        expect(error).to.beNil();
+        done = YES;
+    }];
+    expect(progress).notTo.beNil();
+    expect(progress.totalUnitCount).to.equal(530241);
+    [progress addObserver:self
+               forKeyPath:NSStringFromSelector(@selector(fractionCompleted))
+                  options:NSKeyValueObservingOptionInitial
+                  context:nil];
+    expect(done).will.beTruthy();
+    expect(progress.fractionCompleted).to.equal(1.0);
+    expect(progress.completedUnitCount).to.equal(530241);
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
+                        change:(NSDictionary *)change context:(void *)context
+{
+    NSProgress __unused *progress = object;
+//    NSLog(@"Total unit completed %lld (fraction completed=%f)", progress.completedUnitCount, progress.fractionCompleted);
+}
+
 - (void)testCompression
 {
     NSData *stringData = [@"God is a mute and there is no 'why?'." dataUsingEncoding:NSUTF8StringEncoding];

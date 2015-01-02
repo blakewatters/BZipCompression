@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		252CB16A1A5622A200F46EF5 /* anna_karenina.txt in Resources */ = {isa = PBXBuildFile; fileRef = 252CB1681A5622A200F46EF5 /* anna_karenina.txt */; };
+		252CB16B1A5622A200F46EF5 /* anna_karenina.txt in Resources */ = {isa = PBXBuildFile; fileRef = 252CB1681A5622A200F46EF5 /* anna_karenina.txt */; };
+		252CB16C1A5622A200F46EF5 /* anna_karenina.txt.bz2 in Resources */ = {isa = PBXBuildFile; fileRef = 252CB1691A5622A200F46EF5 /* anna_karenina.txt.bz2 */; };
+		252CB16D1A5622A200F46EF5 /* anna_karenina.txt.bz2 in Resources */ = {isa = PBXBuildFile; fileRef = 252CB1691A5622A200F46EF5 /* anna_karenina.txt.bz2 */; };
 		256E734D191EEAE200F7BC9B /* Fixture.txt in Resources */ = {isa = PBXBuildFile; fileRef = 251986DE17EB687500699DBA /* Fixture.txt */; };
 		256E734E191EEAE200F7BC9B /* Fixture.txt.bz2 in Resources */ = {isa = PBXBuildFile; fileRef = 2503F66117EB610D003567EF /* Fixture.txt.bz2 */; };
 		256E734F191EEAE200F7BC9B /* Fixture.txt in Resources */ = {isa = PBXBuildFile; fileRef = 251986DE17EB687500699DBA /* Fixture.txt */; };
@@ -22,11 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E2BE29A783676C2F4A76043 /* Pods-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ios/Pods-ios.release.xcconfig"; sourceTree = "<group>"; };
 		169BB4EE1051441592FCCA22 /* libPods-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		193F69FEEBC443C283E5F0E4 /* Pods-ios.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.xcconfig"; path = "../Pods/Pods-ios.xcconfig"; sourceTree = "<group>"; };
+		176226F33F8218965E6A6EAE /* Pods-osx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-osx/Pods-osx.debug.xcconfig"; sourceTree = "<group>"; };
 		2503F65E17EB5E1E003567EF /* BZipCompressionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZipCompressionTests.m; sourceTree = "<group>"; };
 		2503F66117EB610D003567EF /* Fixture.txt.bz2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fixture.txt.bz2; sourceTree = "<group>"; };
 		251986DE17EB687500699DBA /* Fixture.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fixture.txt; sourceTree = "<group>"; };
+		252CB1681A5622A200F46EF5 /* anna_karenina.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = anna_karenina.txt; sourceTree = "<group>"; };
+		252CB1691A5622A200F46EF5 /* anna_karenina.txt.bz2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = anna_karenina.txt.bz2; sourceTree = "<group>"; };
 		25A0134D17DBC212006C2BD6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		25A0134F17DBC212006C2BD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		25A0136517DBC225006C2BD6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -36,9 +43,10 @@
 		25F6B13C191EEA0D00ED71D8 /* iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F6B13D191EEA0D00ED71D8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		25F6B151191EEA2000ED71D8 /* OS X Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OS X Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C0EB73A9A655B876DE6ECA /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		B6DF6DD3C6C0407A8FA9E1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3101BE74AE22074694E0496 /* Pods-osx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.release.xcconfig"; path = "../Pods/Target Support Files/Pods-osx/Pods-osx.release.xcconfig"; sourceTree = "<group>"; };
 		C4355EA794D84F2BB2496AF8 /* libPods-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF2E27B855724C1EA1E411FD /* Pods-osx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.xcconfig"; path = "../Pods/Pods-osx.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,13 +76,14 @@
 		25A0133C17DBC1F4006C2BD6 = {
 			isa = PBXGroup;
 			children = (
+				252CB1681A5622A200F46EF5 /* anna_karenina.txt */,
+				252CB1691A5622A200F46EF5 /* anna_karenina.txt.bz2 */,
 				2503F65E17EB5E1E003567EF /* BZipCompressionTests.m */,
 				251986DE17EB687500699DBA /* Fixture.txt */,
 				2503F66117EB610D003567EF /* Fixture.txt.bz2 */,
 				25A0134A17DBC212006C2BD6 /* Frameworks */,
 				25A0134917DBC212006C2BD6 /* Products */,
-				193F69FEEBC443C283E5F0E4 /* Pods-ios.xcconfig */,
-				DF2E27B855724C1EA1E411FD /* Pods-osx.xcconfig */,
+				52A409E53941E07EE2E3E8E0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +119,17 @@
 				25A0136A17DBC225006C2BD6 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		52A409E53941E07EE2E3E8E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0C0EB73A9A655B876DE6ECA /* Pods-ios.debug.xcconfig */,
+				0E2BE29A783676C2F4A76043 /* Pods-ios.release.xcconfig */,
+				176226F33F8218965E6A6EAE /* Pods-osx.debug.xcconfig */,
+				C3101BE74AE22074694E0496 /* Pods-osx.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +211,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				256E734E191EEAE200F7BC9B /* Fixture.txt.bz2 in Resources */,
+				252CB16C1A5622A200F46EF5 /* anna_karenina.txt.bz2 in Resources */,
 				256E734D191EEAE200F7BC9B /* Fixture.txt in Resources */,
+				252CB16A1A5622A200F46EF5 /* anna_karenina.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +222,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				256E7350191EEAE200F7BC9B /* Fixture.txt.bz2 in Resources */,
+				252CB16D1A5622A200F46EF5 /* anna_karenina.txt.bz2 in Resources */,
 				256E734F191EEAE200F7BC9B /* Fixture.txt in Resources */,
+				252CB16B1A5622A200F46EF5 /* anna_karenina.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +243,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-osx-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-osx/Pods-osx-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DDED1006C25446D9B6116E13 /* Copy Pods Resources */ = {
@@ -234,7 +258,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-ios-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ios/Pods-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E7F3E73A191B4C45AD82AC29 /* Check Pods Manifest.lock */ = {
@@ -304,7 +328,7 @@
 		};
 		25F6B14B191EEA0D00ED71D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 193F69FEEBC443C283E5F0E4 /* Pods-ios.xcconfig */;
+			baseConfigurationReference = A0C0EB73A9A655B876DE6ECA /* Pods-ios.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -351,7 +375,7 @@
 		};
 		25F6B14C191EEA0D00ED71D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 193F69FEEBC443C283E5F0E4 /* Pods-ios.xcconfig */;
+			baseConfigurationReference = 0E2BE29A783676C2F4A76043 /* Pods-ios.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -393,7 +417,7 @@
 		};
 		25F6B15F191EEA2000ED71D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF2E27B855724C1EA1E411FD /* Pods-osx.xcconfig */;
+			baseConfigurationReference = 176226F33F8218965E6A6EAE /* Pods-osx.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -440,7 +464,7 @@
 		};
 		25F6B160191EEA2000ED71D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF2E27B855724C1EA1E411FD /* Pods-osx.xcconfig */;
+			baseConfigurationReference = C3101BE74AE22074694E0496 /* Pods-osx.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
