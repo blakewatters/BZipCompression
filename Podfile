@@ -1,4 +1,4 @@
-platform :ios, 5.0
+platform :ios, 7.0
 
 xcodeproj 'Tests/BZipCompressionTests'
 workspace 'BZipCompression'
@@ -10,7 +10,7 @@ def import_pods
 end
 
 target :ios do
-  platform :ios, '5.0'
+  platform :ios, '7.0'
   link_with 'iOS Tests'
   import_pods
 end
