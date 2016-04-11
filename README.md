@@ -21,6 +21,10 @@ BZipCompression is a simple Objective-C interface to the BZip2 compression libra
 
 The library is implemented as a static interface with only two public methods: one for compression and one for decompression.
 
+```objc
+#import "BZipCompression/BZipCompression.h"
+```
+
 ### Decompressing Data
 
 ```objc
