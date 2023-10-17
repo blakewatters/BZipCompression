@@ -19,8 +19,8 @@
 //
 
 // The domain for errors returned by the BZip library.
-extern NSString * const BZipErrorDomain;
 #import <Foundation/Foundation.h>
+extern NSString * const BZipErrorDomain;
 
 typedef NS_ENUM(NSInteger, BZipError) {
     // Underlying BZip2 Library Errors
